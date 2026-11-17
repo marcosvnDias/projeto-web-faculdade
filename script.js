@@ -18,6 +18,14 @@ let cadeiraGamer = new Produto("Cadeira Gamer", "Móvel", 680.00, "cadeira-gamer
 
 var listProdutos = [telcado, headset, cadeiraGamer]
 
+const cuponsValidos = {
+    "DESC10": 0.10,
+    "BEMVINDO20": 0.20,
+    "PROMO50": 0.50
+}
+
+let descontoAtual = 0
+
 function renderItens(listProdutos) {
     let tabelaProduto = document.getElementById("tabelaProduto")
     tabelaProduto.innerHTML = ""
@@ -125,12 +133,50 @@ function removerProduto(elemento) {
 function calculaValorTotal(listProdutos) {
     const totalCompra = document.getElementById("totalCompra")
     const subTotal = document.getElementById("subTotal")
+    const linhaDesconto = document.getElementById("linhaDesconto")
+    const valorDescontoEl = document.getElementById("valorDesconto")
     
     let somaTotal = listProdutos.reduce((acumulador, produto) => acumulador + produto.precoTotal, 0)
     let total = tratarPreco(somaTotal)
+    let valorDescontado = somaTotal * descontoAtual
+    let totalComDesconto = tratarPreco(somaTotal - valorDescontado)
 
-    totalCompra.textContent = total
     subTotal.textContent = total
+    totalCompra.textContent = totalComDesconto
+
+    if (descontoAtual > 0) {
+        linhaDesconto.style.display = "flex"
+        valorDescontoEl.textContent = "- " + tratarPreco(valorDescontado)
+    }
+}
+
+function configurarCupom() {
+    const botaoDesconto = document.getElementById("botao-desconto")
+    const areaCupom = document.getElementById("area-cupom")
+    const inputCupom = document.getElementById("input-cupom")
+    const botaoAplicar = document.getElementById("aplicar-cupom")
+
+    botaoDesconto.addEventListener("click", () => {
+        botaoDesconto.style.display = "none"
+        areaCupom.style.display = "flex"
+        areaCupom.style.minWidth = "343px"
+        inputCupom.focus()
+    })
+
+    botaoAplicar.addEventListener("click", () => {
+        const codigoDigitado = inputCupom.value.trim().toUpperCase()
+
+        if (cuponsValidos[codigoDigitado]) {
+            descontoAtual = cuponsValidos[codigoDigitado]
+            calculaValorTotal(listProdutos)
+            
+            areaCupom.innerHTML = `<span style="color: #3bc55b; font-size: 14px;">✔ Cupom <strong>${codigoDigitado}</strong> aplicado!</span>`
+        } else {
+            alert("Cupom inválido! Tente: DESC10, BEMVINDO20 ou PROMO50")
+            inputCupom.value = ""
+            inputCupom.focus()
+        }
+    })
 }
 
 function renderNumeroPedido() {
@@ -140,4 +186,5 @@ function renderNumeroPedido() {
 }
 
 renderNumeroPedido()
+configurarCupom()
 renderItens(listProdutos)

@@ -211,3 +211,32 @@ aside > button {
 aside > button:hover {
   background: #3bc55b;
 }
+
+.cupom-container {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.cupom-container input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+
+.cupom-container button {
+  background: #404f89;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: 200ms;
+}
+
+.cupom-container button:hover {
+  background: #2f3b68;
+}

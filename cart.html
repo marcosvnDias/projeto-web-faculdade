@@ -41,15 +41,27 @@
                 <span>Sub-total</span>
                 <span id="subTotal">R$ 00,00</span>
               </div>
+
               <div>
                 <span>Frete</span>
                 <span>Gratuito</span>
               </div>
+
+              <div id="linhaDesconto" style="display: none; color: #3bc55b; font-weight: bold;">
+                <span>Desconto</span>
+                <span id="valorDesconto">- R$ 0,00</span>
+              </div>
+
               <div>
-                <button>
+                <button id="botao-desconto">
                   Adicionar cupom de desconto
                   <i class="bx bx-right-arrow-alt"></i>
                 </button>
+
+                <div id="area-cupom" class="cupom-container" style="display: none;">
+                  <input type="text" id="input-cupom" placeholder="Digite o cupom (ex: DESC10)" />
+                  <button id="aplicar-cupom">Aplicar</button>
+                </div>
               </div>
             </div>
             <footer>
