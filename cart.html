@@ -69,10 +69,26 @@
               <span id="totalCompra">R$ 00,00</span>
             </footer>
           </div>
-          <button>Finalizar Compra</button>
+          <button id="btnAbrirModal">Finalizar Compra</button>
         </aside>
       </div>
     </main>
+
+    <dialog id="modalFinalizar">
+      <form method="dialog" id="formModal">
+        <h2>Resumo do Pedido</h2>
+        <div id="modalConteudoItens" class="modal-itens-lista">
+        </div>
+        <div class="modal-total-container">
+          <span>Total a Pagar:</span>
+          <strong id="modalTotalGeral">R$ 0,00</strong>
+        </div>
+        <div class="modal-botoes">
+          <button type="button" id="btnFecharModal">Fechar</button>
+          <button type="submit" id="btnConfirmarCompra">Finalizar Comprar</button>
+        </div>
+      </form>
+    </dialog>
     <script src="script.js"></script>
   </body>
 </html>

@@ -185,6 +185,61 @@ function renderNumeroPedido() {
     numeroPedido.textContent = "Pedido #" + numeroAleatorio
 }
 
+function configurarModal() {
+    const btnAbrirModal = document.getElementById("btnAbrirModal")
+    const modalFinalizar = document.getElementById("modalFinalizar")
+    const btnFecharModal = document.getElementById("btnFecharModal")
+    const formModal = document.getElementById("formModal")
+    const modalConteudoItens = document.getElementById("modalConteudoItens")
+    const modalTotalGeral = document.getElementById("modalTotalGeral")
+
+    btnAbrirModal.addEventListener("click", () => {
+        if (listProdutos.length === 0) {
+            alert("Seu carrinho está vazio!")
+            return
+        }
+
+        modalConteudoItens.innerHTML = ""
+        let somaTotalBruta = 0
+
+        listProdutos.forEach(produto => {
+            let subtotalItem = produto.precoTotal
+            somaTotalBruta += subtotalItem
+
+            modalConteudoItens.innerHTML += `
+                <div class="modal-item-linha">
+                    <span>${produto.qtItens}x ${produto.nome}</span>
+                    <span>R$ ${tratarPreco(subtotalItem)}</span>
+                </div>
+            `
+        })
+
+        let valorDescontado = somaTotalBruta * descontoAtual
+        let totalFinalComDesconto = somaTotalBruta - valorDescontado
+        modalTotalGeral.textContent = "R$ " + tratarPreco(totalFinalComDesconto)
+
+        modalFinalizar.showModal()
+    })
+
+    btnFecharModal.addEventListener("click", () => {
+        modalFinalizar.close()
+    })
+
+    formModal.addEventListener("submit", (event) => {
+        event.preventDefault()
+        
+        alert("Compra finalizada com sucesso! Obrigado pelo pedido.")
+        
+        listProdutos = []
+        descontoAtual = 0
+        
+        renderItens(listProdutos)
+        modalFinalizar.close()
+        renderNumeroPedido()
+    })
+}
+
 renderNumeroPedido()
 configurarCupom()
+configurarModal()
 renderItens(listProdutos)

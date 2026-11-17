@@ -240,3 +240,179 @@ aside > button:hover {
 .cupom-container button:hover {
   background: #2f3b68;
 }
+
+dialog#modalFinalizar {
+  border: none;
+  border-radius: 8px;
+  padding: 25px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+dialog#modalFinalizar::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#formModal h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #404f89;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-itens-lista {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 5px;
+}
+
+.modal-item-linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f1f1;
+  color: #444;
+}
+
+.modal-total-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #eee;
+  color: #222;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-botoes button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#btnFecharModal {
+  background: #ccc;
+  color: #333;
+}
+
+#btnFecharModal:hover {
+  background: #b5b5b5;
+}
+
+#btnConfirmarCompra {
+  background: #3bc55b;
+  color: white;
+}
+
+#btnConfirmarCompra:hover {
+  background: #2ea34a;
+}
+
+dialog#modalFinalizar {
+  border: none;
+  border-radius: 8px;
+  padding: 25px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+dialog#modalFinalizar::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#formModal h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #404f89;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-itens-lista {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 5px;
+}
+
+.modal-item-linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f1f1;
+  color: #444;
+}
+
+.modal-total-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #eee;
+  color: #222;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-botoes button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#btnFecharModal {
+  background: #ccc;
+  color: #333;
+}
+
+#btnFecharModal:hover {
+  background: #b5b5b5;
+}
+
+#btnConfirmarCompra {
+  background: #3bc55b;
+  color: white;
+}
+
+#btnConfirmarCompra:hover {
+  background: #2ea34a;
+}
